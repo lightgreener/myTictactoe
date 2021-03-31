@@ -5,12 +5,12 @@ $(document).ready(function(){
     // const circle = 'O';
     // const cross = "X";
 
-    // // set two arrays, one is to store 
+    // // set two arrays, one is to store
     // // another is to show info
     // let model = [];   // 1 is cross, 2 is circle, 0 is available
     // let cells = [];    // td
 
-    // // check turns 
+    // // check turns
     // let flag = 1 ;
 
     // //initialize arrays
@@ -28,7 +28,7 @@ $(document).ready(function(){
     //             model[i][j] = 0;
     //             cells[i][j].innerHTML = 'available';   // 可能是空格， 没有空格
     //         }
-    //      flag = 1;   
+    //      flag = 1;
     //     }
     // }
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
     // console.log(cells);
     // console.log(flag);
 
-    // // fresh function 
+    // // fresh function
     // const refresh = function (){
     //     let i,j;
     //     for(i =0; i< 3; i++){
@@ -63,7 +63,7 @@ $(document).ready(function(){
     //     //   /
     //     if(model[0][0] !=0 && model[0][0] === model[1][1] && model[0][0] === model[2][2]) {
     //         return 1;
-    //     } 
+    //     }
     //     //   \
     //     // if(model[x][y] !=0 && model[x][y] === model[1][1] && model[x][y] === model[y][x]) {
     //     //     return 1;
@@ -75,7 +75,7 @@ $(document).ready(function(){
     //     }
     //     return 0;
     // }
-    
+
     // newGame();
 
 
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 //     // const clickAction = function (e){
 //     //     if ( flag % 2 === 0){
-//     //         e.target.style.backgroundImage= "url('img/redCross4.png')"    
+//     //         e.target.style.backgroundImage= "url('img/redCross4.png')"
 //     //     } else{
 //     //     e.target.style.backgroundImage= "url('img/circle2.png')"
 //     //     }
@@ -104,7 +104,7 @@ $(document).ready(function(){
 
 // // it is my question?
 // // tableELement.addEventListener('click',clickAction);
-   
+
 // tableELement.addEventListener('click',function(e){
 //     // first tried to remove this event   fail
 //     // e.target.removeEventListener('click', MouseEvent);
@@ -112,22 +112,21 @@ $(document).ready(function(){
 //     // e.target.addEventListener('click', function(e){
 //         //     e.preventDefault();
 //         // })
-        
-        
+
+
 //         e.target.style.backgroundImage= "url('img/redCross4.png')"
 //         // e.target.innerHTML = cross;
 
 //         e.target.setAttribute('class','occupied');
 //         e.stopPropagation();
 //         console.log(e.target);
-//         console.log(e.target.id);  // 2-1 
+//         console.log(e.target.id);  // 2-1
 //         const firstNumber = Number(e.target.id.split('-')[0]);
 //         const lastNumber = Number(e.target.id.split('-')[1]);
 //         //  it doesnot work
 //         // e.target.addEventListener('click', function(e){
 //             //     e.preventDefault();
-//             // })
-            
+//             // })            
 //             // js set value
 //             // e.target.innerHTML="1";
 //             //check winner
@@ -136,8 +135,8 @@ $(document).ready(function(){
 
 //             // question ,why it does not work
 //             e.target.preventDefault();
-    
-//     })  
+
+//     })
 
 
     const redcross = "url('img/redCross4.png')";
@@ -153,10 +152,10 @@ $(document).ready(function(){
         [1,4,7],
         [2,5,8],
         [0,4,8],
-        [2,4,6]    
+        [2,4,6]
     ];
-    
-    let occupiedList = document.querySelectorAll('.occupied');  
+
+    let occupiedList = document.querySelectorAll('.occupied');
     function checkOccupy () {
         for (let i = 0; i < occupiedList.length; i++) {
             const element = occupiedList[i];
@@ -165,7 +164,7 @@ $(document).ready(function(){
             })
         }
     }
-    
+
     let tdList = document.querySelectorAll('td');
     startGame();
 
@@ -181,7 +180,7 @@ $(document).ready(function(){
         count = 1;
     }
 
-    // solve replay problem  
+    // solve replay problem
     $('.gameButton').on('click',startGame);
 
     function clickAction () {
@@ -202,7 +201,7 @@ $(document).ready(function(){
         console.log(this.id);  //
         // const firstNumber = Number(this.id.split('-')[0]);
         // const lastNumber = Number(this.id.split('-')[1]);
-       
+
         checkWin(crossArray);
         checkWin(roundArray);
     }
@@ -213,25 +212,19 @@ $(document).ready(function(){
         // }
 
         for (let x = 0; x < winCombination.length; x++) {
-            const element = winCombination[x];   
+            const element = winCombination[x];
             if(element.sort().toString() === array.sort().toString()) {
 
                 document.querySelector('.finish').style.display='block';
                 document.querySelector('.finish').innerText ='winner';
                 break;
-            }   
+            }
         }
-
-
     }
 
 
     // function turn (id, player){
     //     document.getElementById("id").style.backgroundImage= player;
     // }
-
-
-
-
 
 })
